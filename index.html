@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Food App</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding:0px ">
+      <img src="assets/images/logo.svg" style=" padding-left: 20px; padding-right: 40px;  border-top-right-radius: 30px; border-bottom-right-radius: 30px; border: 1px;  background-color: grey ;height: 70px; ">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
+        <div class="navbar-nav d-flex ">
+          <a class="nav-item nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>  
+          <a class="nav-item nav-link custom-link" href="#">Custom Recipe Nutrition</a>
+          <a class="nav-item nav-link" href="#">Favourite Recipes</a>
+        </div>
+      </div>
+      <div class="row" id="userForms" >
+        <form class=" form-column" >
+            <input class="form-control form-control-sm text-center" id="email" type="email" placeholder="email" style=" border-radius: 20px; width: 286px">
+            <input class="form-control form-control-sm text-center" id="passWord" type="password" placeholder="password" style=" border-radius: 20px; width: 286px">
+        </form>
+        <form class="d-block form-inline" style="width: 94px">
+            <button class="col btn btn-dark btn-sm" id="signupButt" type="submit" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px; " >SignUp</button>
+            <button class="col btn btn-dark btn-sm" id="myAcc" type="submit" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px;">MyAccount</button>
+
+            <button class="col btn btn-dark btn-sm" id="loginButt" type="submit" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px; "> Login </button>
+            <button class="col btn btn-dark btn-sm" id="logoutButt" type="submit" style=" border-top-left-radius: 20px; border-bottom-left-radius: 20px; display: none; "> Logout </button>
+
+        </form> 
+      </div>
+      
+    </nav>
+
+      
+
+      <div class='container-fluid'>
+
+        <div class='row'>
+          <div class='col'>
+              <form class="form-inline my-2 d-flex flex-row justify-content-center" id='search-area'>
+                  <button class="btn btn-outline-success my-2" type="submit" id='search-button'>Add</button>
+                  <input class="form-control mx-2 text-center" id='search-bar' type="search" placeholder="Enter an ingredient here. Keep it simple for the best results!" aria-label="Search">
+                  <button class="btn btn-outline-success my-2" type="submit" id='recipe-button'>Find Recipes</button>
+              </form>
+          </div>
+        </div>
+
+            <div class='col p-3 bg bg-primary d-flex flex-column justify-content-center text-white' id='user-ingr'>
+                <h5 class='mx-auto mb-auto'>Current Ingredients (View/Hide)</h5>
+                <div class='d-none' id='ingr-list'>
+                    <button id="clear">Clear</button>
+                </div>
+                
+            </div>
+        
+
+        <div class='row' id='food-tiles'>
+          <div class='col d-flex flex-wrap justify-content-center'>
+            <div class='m-3 p-3 tile d-flex flex-column' id='fruits'>
+              <h4 class='m-auto'>Fruits</h4>
+              <div class='d-none list' id='fruits-list'></div>
+            </div>
+            <div class='m-3 p-3 tile d-flex flex-column'id='vegetables'>
+              <h4 class='m-auto'>Vegetables</h4>
+              <div class='d-none list' id='vegetables-list'></div>
+            </div>
+            <div class='m-3 p-3 tile d-flex flex-column' id='grains'>
+              <h4 class='m-auto'>Grains</h4>
+              <div class='d-none list' id='grains-list'></div>
+            </div>
+            <div class='m-3 p-3 tile d-flex flex-column' id='dairy'>
+              <h4 class='m-auto'>Dairy</h4>
+              <div class='d-none list' id='dairy-list'></div>
+            </div>
+            <div class='m-3 p-3 tile d-flex flex-column' id='meat'>
+              <h4 class='m-auto'>Meat /<br>Alternatives</h4>
+              <div class='d-none list' id='meat-alts-list'></div>
+            </div>
+            <div class='m-3 p-3 tile d-flex flex-column' id='other'>
+                <h4 class='m-auto'>Other</h4>
+                <div class='d-none list' id='other-list'></div>
+            </div>
+          </div>
+        </div>
+
+        <div class='row d-none mt-3 mb-5 pb-5' id='recipe-tiles'>
+            <div class='col d-flex flex-column' id='recipe-list'>
+                <!-- Populate recipe results here -->
+            </div>
+        </div>
+
+        <div class='row d-none' id='custom-nutrition'>
+          <div class='col d-flex flex-column'>
+            <form class='d-flex flex-column p-3' id='custom-ingr'></form>
+            <button class='btn btn-primary mx-auto' id='nutrition-button'>Find Nutrition</button>
+          </div>
+        </div>
+
+        <div class='row d-none mt-3' id='nutrition-results-row'>
+            <div class='col d-flex flex-column'>
+              <div id="nutrition-results-div"></div>
+            </div>
+          </div>
+
+        <div class='footer fixed-bottom  bg bg-dark text-muted d-flex'>
+            <h5 class='mx-auto my-3'>LNRV Development Team 2018</h5>
+        </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB7qlfahOZn3WCoXsne0WY26Z-dE2N_m1U",
+      authDomain: "ultimate-food-guide.firebaseapp.com",
+      databaseURL: "https://ultimate-food-guide.firebaseio.com",
+      projectId: "ultimate-food-guide",
+      storageBucket: "",
+      messagingSenderId: "674703006763"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+    <!-- Custom JS -->
+    <script src='assets/javascript/logic.js'></script>
+  </body>
+</html>

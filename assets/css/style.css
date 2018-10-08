@@ -1,0 +1,72 @@
+
+#search-bar {
+    width: calc( 100% - 80px );
+    max-width: 600px;
+}
+
+#user-ingr {
+    overflow: hidden;
+    margin-left: 0px;
+}
+
+#userForms{
+    margin-left:0px;
+    margin-right: 0px;
+}
+
+
+
+
+
+.navbar-nav a {
+    line-height: 70px;
+    padding: 0px;
+
+}
+
+.tile {
+    width: 200px;
+    height: 200px;
+}
+
+div {
+    border-radius: 20px;
+}
+img {
+    border: 10px solid white;
+    align-self: center;
+}
+
+h4 {
+    color: white;
+}
+
+#fruits {
+    background-color: orange;
+}
+
+#vegetables {
+    background-color: green;
+}
+
+#grains {
+    background-color: brown;
+}
+
+#dairy {
+    background-color: blue;
+}
+
+#meat {
+    background-color: red;
+}
+
+#other {
+    background-color: gray;
+}
+#clear{
+    border-radius: 5px;
+    width:30%;
+    
+   align-self: center;
+}
